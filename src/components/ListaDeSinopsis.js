@@ -1,6 +1,7 @@
 import { connect } from 'react-redux' //vincula las propiedades del estado de la store con las propiedades del componente
 import React, { Component } from 'react'
 import { agregarSinopsis } from '../store/actions'
+import Button from 'react-bootstrap/Button'
 
 const mapStateToProps = (state) => { //propiedades que voy a agregarle a mis componentes // mapeo estados con prop
     return {
@@ -14,7 +15,7 @@ const mapDispatchToProps = (dispatch) => { //mapea los dispatch hacia las propie
     }
 }
 
-class ListaDeReseniasComponent extends Component {
+class ListaDeSinopsisComponent extends Component {
     constructor() {
         super()
 
@@ -38,9 +39,11 @@ class ListaDeReseniasComponent extends Component {
             <div>
                 <h3> {this.props.propiedadSinopsis.length} </h3>
                 <hr />
-                <input type="text" id="id" ref={this.idSinopsis} /> <br />
+                <input type="text" id="id" ref={this.idSinopsis} />
+                <br />
                 <input type="text" id="nombre" ref={this.tituloSinopsis} /> <br />
-                <button id="addResenia" onClick={this.addSinopsis}>Agregar Sinopsis</button>
+                <br />
+                <Button variant="dark" id="addResenia" onClick={this.addSinopsis}>Agregar Sinopsis</Button>
                 <hr />
             <ul>
                 {
@@ -56,6 +59,6 @@ class ListaDeReseniasComponent extends Component {
     }
 }
 
-const ListaDeResenias = connect(mapStateToProps, mapDispatchToProps)(ListaDeReseniasComponent)
+const ListaDeSinopsis = connect(mapStateToProps, mapDispatchToProps)(ListaDeSinopsisComponent)
 
-export default ListaDeResenias
+export default ListaDeSinopsis

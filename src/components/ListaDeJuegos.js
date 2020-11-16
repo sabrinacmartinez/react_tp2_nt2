@@ -1,6 +1,7 @@
 import { connect } from 'react-redux' //vincula las propiedades del estado de la store con las propiedades del componente
 import React, { Component } from 'react'
 import { agregarJuego } from '../store/actions'
+import Button from 'react-bootstrap/Button'
 
 const mapStateToProps = (state) => { //propiedades que voy a agregarle a mis componentes // mapeo estados con prop
     return {
@@ -36,7 +37,8 @@ class ListaDeJuegosComponent extends Component {
                 <h3> {this.props.propiedadJuego.length} </h3>
                 <hr />
                 <input type="text" id="nombre" ref={this.nombreJuego} /> <br />
-                <button id="addJuego" onClick={this.addJuego}>Agregar Juego</button>
+                <br />
+                <Button variant="dark" id="addJuego" onClick={this.addJuego}>Agregar Juego</Button>
                 <hr />
         </div>
             )

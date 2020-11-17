@@ -1,12 +1,47 @@
-import React from 'react';
+import React, { Component } from 'react'
+import Carousel from 'react-bootstrap/Carousel'
 
-const Home = () => {
-    return(
-        <div className="App">
-            <h1>Inicio </h1>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/deHa-u_2aFM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-    )
+class Home extends Component {
+
+render() {
+    return (
+        <Carousel>
+        <Carousel.Item interval={1000}>
+            <img
+            className="d-block w-100"
+            src="/MGS.jpg"
+            alt="First slide"
+            />
+            <Carousel.Caption>
+            <h3>Ya disponible la sinopsis de Metal Gear Solid: Ground Zeroes </h3>
+            <p>Leela desde "Lista de juegos".</p>
+            </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item interval={1000}>
+            <img
+            className="d-block w-100"
+            src="/TR.jpg"
+            alt="Third slide"
+            />
+            <Carousel.Caption>
+            <h3>Ya disponible la sinopsis de Shadow of the Tomb Raider</h3>
+            <p>Leela desde "Lista de juegos".</p>
+            </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item interval={1000}>
+            <img
+            className="d-block w-100"
+            src="/hitman.jpg"
+            alt="Third slide"
+            />
+            <Carousel.Caption>
+            <h3>Ya disponible la sinopsis de Hitman 2 (2018)</h3>
+            <p>Leela desde "Lista de juegos".</p>
+            </Carousel.Caption>
+        </Carousel.Item>
+        </Carousel>
+        )
+    }
 }
 
 export default Home;

@@ -1,20 +1,20 @@
 import { Navbar, Nav } from "react-bootstrap"
 import React from 'react';
 import { Link } from "react-router-dom";
+import '../App.css';
 
-const navBar = () => (
+const NavBar = () => (
 <>
     <Navbar bg="dark" variant="dark">
-    <Link to="/Home">
-    <Navbar.Brand href="#home">Videojuegos</Navbar.Brand>
+    <Link to="/">
+    <Navbar.Brand href="">Videojuegos</Navbar.Brand>
     </Link>
     <Nav className="mr-auto">
-    <Link to="/ListaDeJuegos">
-    <Nav.Link href="Juegos">Lista de Juegos</Nav.Link>
+    <Link to="/AgregarJuegos">
+    <Nav.Link href="Juegos">Agregar juegos</Nav.Link>
     </Link>
-    <Nav.Link href="#Log">Log in</Nav.Link>
-    <Link to="/Registro">
-    <Nav.Link href="#Registro">Registrarse</Nav.Link>
+    <Link to="/ListaDeJuegos">
+    <Nav.Link href="#ListaDeJuegos">Lista de juegos</Nav.Link>
     </Link>
     </Nav>
     </Navbar>
@@ -22,5 +22,5 @@ const navBar = () => (
     </>
 )
 
-export default navBar;
+export default NavBar;
 

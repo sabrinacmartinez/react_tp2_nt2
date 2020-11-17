@@ -1,50 +1,21 @@
-import { connect } from 'react-redux' //vincula las propiedades del estado de la store con las propiedades del componente
-import React, { Component } from 'react'
-import { agregarJuego } from '../store/actions'
-import Button from 'react-bootstrap/Button'
+import React from 'react';
+import Card from 'react-bootstrap/Card'
 
-const mapStateToProps = (state) => { //propiedades que voy a agregarle a mis componentes // mapeo estados con prop
-    return {
-        propiedadJuego: state.juegos //nombre de la propiedad en el componente, propiedades que le meto al componente 
-    }
-}
+const Log = () => (
+        <>
+        <Card style={{ width: '18rem' }}>
+        <Card.Body>
+            <Card.Title>Card Title</Card.Title>
+            <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
+            <Card.Text>
+            Some quick example text to build on the card title and make up the bulk of
+            the card's content.
+            </Card.Text>
+            <Card.Link href="#">Card Link</Card.Link>
+            <Card.Link href="#">Another Link</Card.Link>
+        </Card.Body>
+        </Card>
+        </>
+    )
 
-const mapDispatchToProps = (dispatch) => { //mapea los dispatch hacia las propiedades del componente 
-    return {
-        propiedadAgregarJuego: juego => dispatch(agregarJuego(juego))
-    }
-}
-
-class ListaDeJuegosComponent extends Component {
-    constructor() {
-        super()
-
-        this.nombreJuego = React.createRef();
-        this.addJuego = this.addJuego.bind(this);
-
-    }
-
-    addJuego(event) {   //tiene que hacer el dispatch
-        console.log(this.nombreJuego.current.value)
-        this.props.propiedadAgregarJuego({
-            nombre: this.nombreJuego.current.value
-        })
-    }
-
-    render() {
-        return (
-            <div>
-                <h3> {this.props.propiedadJuego.length} </h3>
-                <hr />
-                <input type="text" id="nombre" ref={this.nombreJuego} /> <br />
-                <br />
-                <Button variant="dark" id="addJuego" onClick={this.addJuego}>Agregar Juego</Button>
-                <hr />
-        </div>
-            )
-    }
-}
-
-const ListaDeJuegos = connect(mapStateToProps, mapDispatchToProps)(ListaDeJuegosComponent)
-
-export default ListaDeJuegos
+export default Log;

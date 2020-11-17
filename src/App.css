@@ -2,8 +2,9 @@
   text-align: center;
 }
 
-.App-header {
-  background-color: #282c34;
+.Body {
+  background-image: ('./public/background.jpg');
+  background-repeat: repeat;
   min-height: 100vh;
   display: flex;
   flex-direction: column;

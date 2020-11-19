@@ -21,7 +21,7 @@ render() {
             <img
             className="d-block w-100"
             src="/TR.jpg"
-            alt="Third slide"
+            alt="Second slide"
             />
             <Carousel.Caption>
             <h3>Ya disponible la sinopsis de Shadow of the Tomb Raider</h3>

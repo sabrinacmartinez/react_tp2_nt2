@@ -31,7 +31,7 @@ class AgregarJuegosJuegosComponent extends Component {
         console.log(this.nombreJuego.current.value)
         console.log(this.sinopsis.current.value)
         this.props.agregarJuego({
-            nombre: this.nombreJuego.current.value,
+            nombreJuego: this.nombreJuego.current.value,
             sinopsis: this.sinopsis.current.value
         })
     }
@@ -41,31 +41,20 @@ class AgregarJuegosJuegosComponent extends Component {
             <div>
                 <Form>
                     <Form.Group controlId="exampleForm.ControlInput1">
-                        <Form.Label>Nombre del juego</Form.Label>
-                        <Form.Control type="nombre" ref={this.nombreJuego} />
+                        <br/>
+                        <Form.Label>Ingrese el nombre del juego</Form.Label>
+                        <Form.Control required type="nombre" ref={this.nombreJuego} />
                 </Form.Group>
                 <Form.Group controlId="exampleForm.ControlTextarea1">
-                    <Form.Label>Sinopsis del juego</Form.Label>
-                    <Form.Control type="sinopsis" rows={3} ref={this.sinopsis} />
+                        <Form.Label>Ingrese la sinopsis del juego</Form.Label>
+                        <Form.Control required type="sinopsis" rows={10} ref={this.sinopsis} />
                 </Form.Group>
                 </Form>
-                <hr />
-                <br />
                 <Button variant="dark" id="addJuego" onClick={this.addJuego}>Agregar Juego</Button>
                 <hr />
                 <ListGroup.Item action variant="dark">
                 Cantidad de juegos incorporados: { this.props.propiedadJuego.length }
                 </ListGroup.Item>
-                <hr />
-                <ul>
-{/*                 {
-                    this.props.propiedadJuego.map(el => (
-                        <li key={el.nombre}>
-                            {el.sinopsis}
-                        </li>
-                    ))
-                } */}
-            </ul> 
         </div>
             )
     }

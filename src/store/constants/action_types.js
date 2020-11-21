@@ -1,1 +1,2 @@
 export const AGREGAR_JUEGO = 'AGREGAR_JUEGO'
+export const ELIMINAR_JUEGO = 'ELIMINAR_JUEGO'

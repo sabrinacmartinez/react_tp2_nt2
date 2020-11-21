@@ -1,4 +1,4 @@
-import { AGREGAR_JUEGO } from '../constants/action_types'
+import { AGREGAR_JUEGO, ELIMINAR_JUEGO } from '../constants/action_types'
 
 const initialState = {
     juegos: [
@@ -17,8 +17,7 @@ const initialState = {
             sinopsis:'El asesino más letal y silencioso está de vuelta. El Agente 47 tiene una nueva misión, nuevos objetivos y un propósito, descubrir su pasado. Hitman 2 es la secuela directa del primer juego que se lanzó en formato episódico. Y es aquí donde encontramos la primera diferencia. Está segunda entrega abandona ese formato y vuelve a uno más tradicional, sin episodios y con una campaña repleta de acción. Desde el primer momento tendremos toda la historia completa, con seis escenarios totalmente nuevos. De este modo, tendremos que localizar y eliminar a nuestros objetivos en escenarios como los bajos fondos de Bombai o un barrio residencial de republicanos americanos. Eso si, el salto entre una entrega y otra no es tan grande como podríamos esperar pero sigue siendo excelente.',
             id:3
             }
-    ],
-    sinopsis: []
+    ]
 }
 
 let id=4;
@@ -31,10 +30,21 @@ function rootReducer(state=initialState, action) { //aca adentro van las accione
         state = Object.assign({}, state , {
                 juegos: state.juegos.concat(action.data)
             })
-            console.log('Agregar juego :' + action.data) //modularizar bien esto cuando funcione
+            console.log('Agregar juego :' + action.data)
             id++
+            console.log(id)
+
     break;
-    default: //si lo saco no funciona, eslint me obliga a usar al default case
+        case ELIMINAR_JUEGO: 
+        console.log(action.data.id)
+        state = Object.assign({}, state , {
+        juegos: state.juegos.filter((juegos)=>juegos.id !== action.data.id)
+        })
+        console.log(id)
+        console.log('BORRAR juego :' + action.data)
+        ;
+    break;        
+        default: //si lo saco no funciona, eslint me obliga a usar al default case
     }
     return state
 }

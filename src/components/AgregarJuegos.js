@@ -1,13 +1,11 @@
 import { connect } from 'react-redux' //vincula las propiedades del estado de la store con las propiedades del componente
 import React, { Component } from 'react'
 import { agregarJuego } from '../store/actions'
-import Button from 'react-bootstrap/Button'
-import {ListGroup, Form} from 'react-bootstrap'
+import {ListGroup, Form, Button} from 'react-bootstrap'
 
 const mapStateToProps = (state) => { //propiedades que voy a agregarle a mis componentes // mapeo estados con prop
     return {
         propiedadJuego: state.juegos //nombre de la propiedad en el componente, propiedades que le meto al componente 
-    
     }
 }
 
@@ -28,12 +26,17 @@ class AgregarJuegosJuegosComponent extends Component {
     }
 
     addJuego(event) {   //tiene que hacer el dispatch
-        console.log(this.nombreJuego.current.value)
-        console.log(this.sinopsis.current.value)
+/*         console.log(this.nombreJuego.current.value)
+        console.log(this.sinopsis.current.value)  solo utilizado para probar*/
+        if (this.nombreJuego.current.value && this.sinopsis.current.value) {
         this.props.agregarJuego({
             nombreJuego: this.nombreJuego.current.value,
-            sinopsis: this.sinopsis.current.value
-        })
+            sinopsis: this.sinopsis.current.value})
+        alert('Juego agregado con éxito!')
+        }
+        else { 
+            alert('No hay datos suficientes para ingresar un juego. Ingrese la información en los campos.') 
+        }
     }
 
     render() {
@@ -47,7 +50,7 @@ class AgregarJuegosJuegosComponent extends Component {
                 </Form.Group>
                 <Form.Group controlId="exampleForm.ControlTextarea1">
                         <Form.Label>Ingrese la sinopsis del juego</Form.Label>
-                        <Form.Control required type="sinopsis" rows={10} ref={this.sinopsis} />
+                        <Form.Control required type="sinopsis" rows={55} ref={this.sinopsis} />
                 </Form.Group>
                 </Form>
                 <Button variant="dark" id="addJuego" onClick={this.addJuego}>Agregar Juego</Button>
@@ -60,6 +63,6 @@ class AgregarJuegosJuegosComponent extends Component {
     }
 }
 
-const Juego = connect(mapStateToProps, mapDispatchToProps)(AgregarJuegosJuegosComponent)
+const AgregarJuego = connect(mapStateToProps, mapDispatchToProps)(AgregarJuegosJuegosComponent)
 
-export default Juego
+export default AgregarJuego

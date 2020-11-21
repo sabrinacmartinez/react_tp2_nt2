@@ -9,7 +9,7 @@ render() {
             this.props.catalogo.map(e => {
                 return ( 
                 <div key={e.id}>
-                    <Juego nombreJuego={e.nombreJuego} sinopsis={e.sinopsis} />
+                    <Juego nombreJuego={e.nombreJuego} sinopsis={e.sinopsis} id={e.id} />
                 </div>
                 )
             })

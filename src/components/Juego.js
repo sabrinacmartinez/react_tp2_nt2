@@ -17,10 +17,7 @@ class JuegoComponent extends Component {
 
     }
 
-    deleteGame(Event) {
-        console.log(this.props.nombreJuego)
-        console.log(this.props.sinopsis)
-        console.log(this.props.id)
+    deleteGame() {
 
         this.props.eliminarJuego({
             nombreJuego: this.props.nombreJuego,
@@ -40,7 +37,6 @@ class JuegoComponent extends Component {
                 </Card.Title>
                 <p>
                 { this.props.sinopsis }
-                { this.props.id }
                 </p>
                 <Button variant="dark" onClick={this.deleteGame}>Eliminar Juego</Button>
                 </Card.Body>

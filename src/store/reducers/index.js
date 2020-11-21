@@ -30,18 +30,15 @@ function rootReducer(state=initialState, action) { //aca adentro van las accione
         state = Object.assign({}, state , {
                 juegos: state.juegos.concat(action.data)
             })
-            console.log('Agregar juego :' + action.data)
+            console.log('Juego agregado: ' + action.data)
             id++
-            console.log(id)
 
     break;
         case ELIMINAR_JUEGO: 
-        console.log(action.data.id)
         state = Object.assign({}, state , {
         juegos: state.juegos.filter((juegos)=>juegos.id !== action.data.id)
         })
-        console.log(id)
-        console.log('BORRAR juego :' + action.data)
+        console.log('Juego borrado: ' + action.data)
         ;
     break;        
         default: //si lo saco no funciona, eslint me obliga a usar al default case

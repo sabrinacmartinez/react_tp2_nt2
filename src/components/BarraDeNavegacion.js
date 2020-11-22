@@ -1,5 +1,5 @@
 import { Navbar, Nav } from "react-bootstrap"
-import {React, Component} from 'react';
+import { React, Component } from 'react';
 import { Link } from "react-router-dom";
 
 class BarraDeNavegacionComponent extends Component { 
